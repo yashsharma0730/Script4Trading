@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # --- Page Config ---
-st.set_page_config(page_title="💹 Trade Profit Reinvestment Calculator", layout="wide")
+st.set_page_config(page_title="Profit Reinvestment Calculator", layout="wide")
 
 # --- Custom CSS ---
 st.markdown("""
@@ -80,7 +80,7 @@ tbody tr:hover {
 """, unsafe_allow_html=True)
 
 # --- Header ---
-st.markdown("<h1 style='text-align:center;'>💹 Trade Profit Reinvestment & Savings Tracker</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align:center;'> Trade Profit Reinvestment & Savings Tracker</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align:center;color:#7f8c8d;'>Track your daily reinvested profits and savings growth effortlessly 📈</p>", unsafe_allow_html=True)
 
 st.markdown("---")
@@ -89,13 +89,13 @@ st.markdown("---")
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    principal = st.number_input("💵 Enter Principal Amount (₹)", min_value=100.0, value=10000.0, step=100.0)
+    principal = st.number_input(" Enter Principal Amount (₹)", min_value=1000.0, value=1000.0, step=1000.0)
 
 with col2:
-    days = st.number_input("📆 Number of Days", min_value=1, value=10, step=1)
+    days = st.number_input(" Number of Days", min_value=1, value=1, step=1)
 
 with col3:
-    daily_percent = st.number_input("📈 Daily Profit %", min_value=0.1, value=5.0, step=0.1)
+    daily_percent = st.number_input(" Daily Profit %", min_value=0.1, value=1.0, step=0.1)
 
 st.markdown("")
 
@@ -131,13 +131,13 @@ if calculate:
 
     # --- Results Section ---
     st.markdown("---")
-    st.subheader("📊 Daily Growth Table")
+    st.subheader(" Daily Growth Table")
     st.dataframe(df, use_container_width=True, height=400)
 
     # 💾 Save to CSV Option
     csv = df.to_csv(index=False).encode('utf-8')
     st.download_button(
-        label="💾 Save Table as CSV",
+        label=" Save Table as CSV",
         data=csv,
         file_name="trade_growth_data.csv",
         mime="text/csv",
@@ -145,7 +145,7 @@ if calculate:
 
     # --- Summary Section ---
     st.markdown("---")
-    st.subheader("💼 Summary Overview")
+    st.subheader(" Summary Overview")
 
     colA, colB, colC = st.columns(3)
     with colA:
